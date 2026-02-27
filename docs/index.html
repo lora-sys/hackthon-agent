@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMERGENCE | Agent Hackathon Demo</title>
+    <style>
+      :root {
+        --bg: #04070d;
+        --panel: rgba(8, 18, 24, 0.88);
+        --line: #00f3dd;
+        --text: #d5f8f3;
+        --muted: #8fb3ad;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+        color: var(--text);
+        background: radial-gradient(circle at 10% 0%, #0a2f2b 0%, var(--bg) 42%), var(--bg);
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 56px; }
+      .hero {
+        border: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+        background: var(--panel);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 0 0 1px rgba(0, 243, 221, 0.1) inset;
+      }
+      h1 { margin: 0 0 10px; color: var(--line); letter-spacing: 0.08em; }
+      p { margin: 0 0 14px; color: var(--muted); }
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .card {
+        border: 1px solid rgba(0, 243, 221, 0.32);
+        border-radius: 12px;
+        background: rgba(7, 14, 20, 0.76);
+        padding: 14px;
+      }
+      .card h2 { margin: 0 0 8px; font-size: 16px; }
+      .shot {
+        margin-top: 18px;
+        border: 1px solid rgba(0, 243, 221, 0.32);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #020408;
+      }
+      .shot img { width: 100%; display: block; }
+      .links a {
+        color: var(--line);
+        text-decoration: none;
+        margin-right: 16px;
+      }
+      .links a:hover { text-decoration: underline; }
+      ul { margin: 6px 0 0; padding-left: 18px; }
+      li { margin: 6px 0; color: var(--muted); }
+      @media (min-width: 880px) { .grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <img src="./assets/logo.svg" alt="EMERGENCE Logo" style="width:84px;height:84px;display:block;margin-bottom:10px;" />
+        <h1>EMERGENCE</h1>
+        <p>AI Agent 协作生存模拟器（Hackathon 演示页）</p>
+        <p>本页用于快速展示核心能力：LLM 规划、工具执行、世界状态联动与证据链可视化。</p>
+        <div class="links">
+          <a href="https://github.com/lora-sys/hackthon-agent" target="_blank" rel="noreferrer">GitHub 仓库</a>
+          <a href="https://github.com/lora-sys/hackthon-agent/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+          <a href="https://github.com/lora-sys/hackthon-agent/blob/main/HACKATHON_SUBMISSION_GUIDE.md" target="_blank" rel="noreferrer">提交说明</a>
+        </div>
+      </section>
+
+      <section class="shot">
+        <img src="./assets/emergence-demo.png" alt="EMERGENCE 演示截图" />
+      </section>
+
+      <section class="shot" style="margin-top:12px;">
+        <video controls preload="metadata" style="width:100%;display:block;background:#000;">
+          <source src="./assets/demo-stable-final.webm" type="video/webm" />
+        </video>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>项目定位</h2>
+          <ul>
+            <li>不是聊天 UI，而是 Agent 回路：Plan → Execute → Feedback。</li>
+            <li>关键状态推进要求 source=model，防止“纯假数据推进”。</li>
+            <li>降级时保留可见执行流，避免长时间“黑箱等待”。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>评审看点</h2>
+          <ul>
+            <li>实时争论与投票理由、执行动作、资源/风险变化同屏联动。</li>
+            <li>Planner 单飞去重 + 缓存 + 自适应超时，避免请求风暴。</li>
+            <li>可替换环境执行层（本地适配器 / 外部引擎）。</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

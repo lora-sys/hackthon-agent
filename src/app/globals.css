@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════
+     EMERGENCE 配色方案 - 涌现
+     核心理念: 深空黑 + 生物荧光 + 数据蓝
+  ═══════════════════════════════════════════════════════════════ */
+  
+  /* 背景 - 深层宇宙 */
+  --bg-void: #050508;
+  --bg-deep: #0a0a12;
+  --bg-panel: rgba(12, 12, 24, 0.85);
+  
+  /* 主色调 - 生物荧光 */
+  --bio-cyan: #00f5d4;
+  --bio-green: #00ff87;
+  --bio-purple: #9d4edd;
+  --bio-pink: #ff006e;
+  --bio-orange: #ff9500;
+  
+  /* 扫描线 */
+  --scan-cyan: #00f5d4;
+  --scan-blue: #00b4d8;
+  
+  /* 文字 */
+  --text-primary: #e8e8f0;
+  --text-secondary: #6b6b8a;
+  --text-highlight: #00f5d4;
+  --text-warning: #ff006e;
+  --text-success: #00ff87;
+  
+  /* 发光效果 */
+  --glow-cyan: 0 0 20px rgba(0, 245, 212, 0.6);
+  --glow-pulse: 0 0 40px rgba(0, 245, 212, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(0, 245, 212, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255, 183, 3, 0.08), transparent 40%),
+    var(--bg-void);
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-title {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-data {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   基础动画
+══════════════════════════════════════════════════════════════ */
+
+/* 呼吸发光 */
+@keyframes breathingGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 245, 212, 0.6);
+  }
+}
+
+@keyframes breathingGlowPulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+/* 扫描波纹 */
+@keyframes scanWave {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* 数据流 */
+@keyframes dataFlow {
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+/* 脉冲闪烁 */
+@keyframes pulseAlert {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--bio-pink);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 25px var(--bio-pink);
+  }
+}
+
+/* 旋转 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 浮动 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 全息闪烁 */
+@keyframes holographicFlicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.8;
+  }
+  94% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.9;
+  }
+  96% {
+    opacity: 1;
+  }
+}
+
+/* 扫描线效果 */
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* 粒子漂浮 */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-5px) translateX(3px);
+  }
+  50% {
+    transform: translateY(-2px) translateX(-3px);
+  }
+  75% {
+    transform: translateY(-8px) translateX(2px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   实用类
+══════════════════════════════════════════════════════════════ */
+
+.glow-text {
+  text-shadow: 0 0 10px var(--bio-cyan), 0 0 20px var(--bio-cyan);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px var(--bio-green), 0 0 20px var(--bio-green);
+}
+
+.glow-text-pink {
+  text-shadow: 0 0 10px var(--bio-pink), 0 0 20px var(--bio-pink);
+}
+
+.panel-glow {
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.15), 
+              inset 0 0 30px rgba(0, 245, 212, 0.05);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+}
+
+.scan-border {
+  position: relative;
+}
+
+.scan-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--bio-cyan), 
+    transparent, 
+    var(--bio-purple), 
+    transparent
+  );
+  background-size: 400% 400%;
+  z-index: -1;
+  border-radius: inherit;
+  animation: breathingGlow 4s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* 扫描线覆盖层 */
+.scan-line-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 245, 212, 0.03) 50%,
+    transparent
+  );
+  background-size: 100% 4px;
+}
+
+/* 霓虹边框 */
+.neon-border {
+  border: 1px solid var(--bio-cyan);
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.3),
+              inset 0 0 10px rgba(0, 245, 212, 0.1);
+}
+
+.neon-border-warning {
+  border: 1px solid var(--bio-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 110, 0.3),
+              inset 0 0 10px rgba(255, 0, 110, 0.1);
+}
+
+/* 进度条 */
+.progress-glow {
+  background: linear-gradient(90deg, 
+    rgba(0, 245, 212, 0.1) 0%, 
+    rgba(0, 245, 212, 0.3) 50%, 
+    rgba(0, 245, 212, 0.1) 100%
+  );
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+}
+
+/* 数据字体 */
+.font-data {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 标题字体 */
+.font-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bio-cyan);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bio-purple);
+}

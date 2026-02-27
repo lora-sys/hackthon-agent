@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="56" fill="#04070D"/>
+  <rect x="40" y="40" width="432" height="432" rx="40" stroke="#00F3DD" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M96 330L256 106L416 330H96Z" stroke="#00F3DD" stroke-width="10"/>
+  <circle cx="256" cy="256" r="66" stroke="#00F3DD" stroke-opacity="0.45" stroke-width="6"/>
+  <text x="256" y="410" fill="#00F3DD" font-size="52" font-family="JetBrains Mono, monospace" text-anchor="middle" letter-spacing="8">EM</text>
+</svg>
